@@ -1,0 +1,18 @@
+# Python
+backend/venv/
+backend/.venv/
+backend/data/*.db
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# Node / Vue（已跟踪过的目录需先执行 git rm -r --cached 再提交）
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
