@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { ProductListResponse, Product, StatsResponse, ScrapeStatus } from '@/types'
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: '/Goros/api',
   timeout: 30000,
 })
 
