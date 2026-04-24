@@ -404,3 +404,21 @@ npm run dev
 | Phase 9 | RINKAN 增量同步（集合差运算，降低请求量） | ✅ 完成 |
 | Phase 10 | APScheduler 定时任务（凌晨 03:00 自动同步） | ✅ 完成 |
 | Phase 11 | 样式精调（间距优化、语言按钮顺序、ScrapePanel 紧凑化） | ✅ 完成 |
+|| Phase 12 | 品牌 Logo 升级 + TypeScript 全局变量声明修复 | ✅ 完成 |
+
+---
+
+## 更新日志
+
+### v1.0（2026-04-23）
+
+**品牌 Logo 全面升级**
+
+- 将原有对称叶形 SVG 图标替换为 Goros 标志性「上银银绳青松石羽毛」实物照片
+- 使用 AI 抠图（rembg / U²-Net 模型）去除白色背景，生成真正的 RGBA 透明通道 PNG
+- 同步更新桌面端（`AppHeader.vue`）、手机列表页（`MobileListView.vue`）、手机详情页（`MobileDetailView.vue`）三处 Logo，尺寸分别为 `h-7` / `h-6` / `h-5`，与各端标题字号对齐
+- 将 `favicon.svg` 替换为多尺寸 `favicon.ico`（16 / 32 / 48 / 64px），浏览器标签页同步更新
+
+**构建修复**
+
+- 新增 `src/env.d.ts`，声明 Vite `define` 注入的全局变量 `__APP_ENV__` 和 `__ALLOW_MANUAL_SYNC__`，修复 `vue-tsc` 构建时 TS2552 类型报错
