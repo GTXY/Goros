@@ -117,7 +117,6 @@ const allSources = [
   { key: 'corner', name: 'Corner' },
   { key: 'nativefeather', name: 'Native Feather' },
   { key: 'truemark', name: 'TrueMark' },
-  { key: 'fivesix', name: 'FiveSix' },
   { key: 'rinkan', name: 'RINKAN' },
 ]
 

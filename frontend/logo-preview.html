@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOROS Logo 預覽 - 金色素羽設計</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #0F0F0F;
+            color: #F5F5F5;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #C9A84C;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+
+        .header p {
+            color: #999;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .preview-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .preview-card {
+            background: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .preview-title {
+            color: #C9A84C;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border-bottom: 2px solid #C9A84C;
+            padding-bottom: 0.5rem;
+        }
+
+        .logo-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-preview {
+            background: #222;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .logo-svg-container {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 0.2em;
+            font-family: 'Courier New', monospace;
+            color: #C9A84C;
+        }
+
+        .color-info {
+            background: #222;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .color-swatch {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .color-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            border: 2px solid #333;
+        }
+
+        .gold {
+            background: #C9A84C;
+        }
+
+        .gold-light {
+            background: #E2C97E;
+        }
+
+        .gold-dark {
+            background: #A07830;
+        }
+
+        .color-label {
+            font-weight: 500;
+        }
+
+        .color-hex {
+            color: #999;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .badge-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-gold {
+            background: rgba(201, 168, 76, 0.2);
+            color: #C9A84C;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+        }
+
+        .badge-green {
+            background: rgba(52, 211, 153, 0.2);
+            color: #34D399;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .badge-blue {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60A5FA;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .mobile-preview {
+            background: #1A1A1A;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #2A2A2A;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .mobile-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #2A2A2A;
+            margin-bottom: 1rem;
+        }
+
+        .mobile-logo {
+            width: 24px;
+            height: 56px;
+        }
+
+        .mobile-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            letter-spacing: 0.15em;
+            color: #C9A84C;
+            font-family: 'Courier New', monospace;
+        }
+
+        .mobile-content {
+            padding: 1rem;
+        }
+
+        .product-item {
+            background: #222;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin-bottom: 1rem;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-weight: 500;
+            color: #F5F5F5;
+        }
+
+        .product-price {
+            color: #C9A84C;
+            font-weight: 600;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #999;
+        }
+
+        .summary {
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(160, 120, 48, 0.1));
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .summary h2 {
+            color: #C9A84C;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .summary ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .summary li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary li:before {
+            content: "✓";
+            color: #C9A84C;
+            font-weight: bold;
+        }
+
+        .next-steps {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #1A1A1A;
+            border-radius: 12px;
+            border: 1px solid #2A2A2A;
+        }
+
+        .next-steps h2 {
+            color: #C9A84C;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .preview-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>GOROS Logo 金色設計預覽</h1>
+            <p>已根據您的需求將Logo和相關元素從藍色(#4ECDC4)修改為金色(#C9A84C)。以下是修改效果的視覺化預覽。</p>
+        </div>
+
+        <div class="preview-section">
+            <div class="preview-card">
+                <h2 class="preview-title">1. 金色素羽Logo</h2>
+                <div class="logo-display">
+                    <div class="logo-preview">
+                        <div class="logo-svg-container">
+                            <!-- 金色素羽Logo預覽 -->
+                            <svg width="60" height="160" viewBox="0 0 60 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 20 C22 36 8 56 10 96 C13 126 22 151 30 172 C38 151 47 126 50 96 C52 56 38 36 30 20Z" 
+                                      fill="#C9A84C" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="30" y1="20" x2="30" y2="172" stroke="#C9A84C" stroke-width="1.5" opacity="0.8"/>
+                                <line x1="30" y1="50" x2="15" y2="65" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                                <line x1="30" y1="80" x2="10" y2="100" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                                <line x1="30" y1="110" x2="16" y2="130" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                                <line x1="30" y1="50" x2="45" y2="65" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                                <line x1="30" y1="80" x2="50" y2="100" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                                <line x1="30" y1="110" x2="44" y2="130" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                                <circle cx="25" cy="60" r="3" fill="#C9A84C" opacity="0.9"/>
+                                <circle cx="35" cy="100" r="3" fill="#C9A84C" opacity="0.9"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">GOROS</span>
+                    </div>
+                    <div class="color-info">
+                        <h3 style="color: #C9A84C; margin-bottom: 1rem;">金色配色方案</h3>
+                        <div class="color-swatch">
+                            <div class="color-box gold"></div>
+                            <div>
+                                <div class="color-label">主金色</div>
+                                <div class="color-hex">#C9A84C</div>
+                            </div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-box gold-light"></div>
+                            <div>
+                                <div class="color-label">淺金色</div>
+                                <div class="color-hex">#E2C97E</div>
+                            </div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-box gold-dark"></div>
+                            <div>
+                                <div class="color-label">深金色</div>
+                                <div class="color-hex">#A07830</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-card">
+                <h2 class="preview-title">2. 商品來源標籤</h2>
+                <p style="color: #999; margin-bottom: 1rem; line-height: 1.6;">
+                    已將所有商品來源標籤從藍色改為金色，包含 badge-gold 類別。
+                </p>
+                <div class="badge-display">
+                    <span class="badge badge-gold">Rakuten 樂天</span>
+                    <span class="badge badge-gold">Yahoo Auctions</span>
+                    <span class="badge badge-gold">mercari</span>
+                    <span class="badge badge-gold">GOROS Official</span>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: #C9A84C; margin-bottom: 0.8rem;">其他標籤範例（對比）</h3>
+                    <div class="badge-display">
+                        <span class="badge badge-green">新品</span>
+                        <span class="badge badge-blue">中古品</span>
+                        <span class="badge badge-gold">限定品</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-card">
+            <h2 class="preview-title">3. 行動裝置預覽</h2>
+            <div class="mobile-preview">
+                <div class="mobile-header">
+                    <svg width="24" height="56" viewBox="0 0 60 160" fill="none" xmlns="http://www.w3.org/2000/svg" class="mobile-logo">
+                        <path d="M30 20 C22 36 8 56 10 96 C13 126 22 151 30 172 C38 151 47 126 50 96 C52 56 38 36 30 20Z" 
+                              fill="#C9A84C" stroke="#C9A84C" stroke-width="1.2" opacity="0.3"/>
+                        <line x1="30" y1="20" x2="30" y2="172" stroke="#C9A84C" stroke-width="1.2" opacity="0.8"/>
+                        <circle cx="22" cy="60" r="2" fill="#C9A84C" opacity="0.9"/>
+                        <circle cx="38" cy="100" r="2" fill="#C9A84C" opacity="0.9"/>
+                    </svg>
+                    <span class="mobile-title">GOROS</span>
+                </div>
+                
+                <div class="mobile-content">
+                    <div class="product-item">
+                        <div class="product-header">
+                            <span class="product-name">上銀銀縄特大フェザー</span>
+                            <span class="product-price">¥358,000</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="badge badge-gold">GOROS Official</span>
+                            <span>更新 2小時前</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-header">
+                            <span class="product-name">ターコイズ・フェザー</span>
+                            <span class="product-price">¥285,000</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="badge badge-gold">Yahoo Auctions</span>
+                            <span>更新 5小時前</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-header">
+                            <span class="product-name">レザーストラップ</span>
+                            <span class="product-price">¥42,800</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="badge badge-gold">mercari</span>
+                            <span>更新 1天前</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h2>修改摘要</h2>
+            <ul>
+                <li><strong>Logo圖片：</strong>創建了金色素羽Logo (goros-logo-gold.svg)，採用溫暖的金色漸變設計</li>
+                <li><strong>GOROS文字顏色：</strong>將所有 GOROS 文字從藍色(#4ECDC4)改為金色(#C9A84C)</li>
+                <li><strong>商品來源標籤：</strong>將 badge-gold 類別從藍色改為金色配色</li>
+                <li><strong>涵蓋範圍：</strong>修改了 AppHeader、MobileDetailView、MobileListView 等組件</li>
+                <li><strong>保持一致性：</strong>使用 tailwind.config.ts 中定義的金色配色方案</li>
+            </ul>
+        </div>
+
+        <div class="next-steps">
+            <h2>實際效果測試步驟</h2>
+            <p style="color: #999; margin-bottom: 1rem; line-height: 1.6;">
+                要實際查看修改後的效果，您可以：
+            </p>
+            <ol style="color: #999; padding-left: 1.5rem; line-height: 1.6;">
+                <li>打開終端，進入 frontend 目錄：<code style="background: #222; padding: 0.2rem 0.5rem; border-radius: 4px;">cd Goros/frontend</code></li>
+                <li>啟動開發伺服器：<code style="background: #222; padding: 0.2rem 0.5rem; border-radius: 4px;">npm run dev</code></li>
+                <li>瀏覽器訪問 <code style="background: #222; padding: 0.2rem 0.5rem; border-radius: 4px;">http://localhost:5173</code></li>
+                <li>查看頁面頂部的Logo和商品標籤是否顯示為金色</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

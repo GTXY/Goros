@@ -32,7 +32,6 @@ SOURCES = {
     "corner": "Corner",
     "nativefeather": "Native Feather",
     "truemark": "TrueMark",
-    "fivesix": "FiveSix",
     "rinkan": "RINKAN",
 }
 

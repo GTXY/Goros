@@ -107,7 +107,6 @@ const sourceLabels: Record<string, string> = {
   corner: 'Corner',
   nativefeather: 'Native Feather',
   truemark: 'TrueMark',
-  fivesix: 'FiveSix',
   rinkan: 'RINKAN',
 }
 const sourceLabel = (key: string) => sourceLabels[key] ?? key

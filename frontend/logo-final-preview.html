@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo最終調整預覽</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem;
+            background: #0F0F0F;
+            color: #F5F5F5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #C9A84C;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .preview-section {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #2A2A2A;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            color: #C9A84C;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #C9A84C;
+            padding-bottom: 0.5rem;
+        }
+        .pc-preview, .mobile-preview {
+            background: #222;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin-bottom: 1.5rem;
+        }
+        .preview-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            margin-bottom: 1.5rem;
+        }
+        .size-info {
+            background: #2A2A2A;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #C9A84C;
+            font-size: 0.9rem;
+        }
+        .success-box {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            margin: 1rem 0;
+        }
+        .info-box {
+            background: rgba(33, 150, 243, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid rgba(33, 150, 243, 0.3);
+            margin: 1rem 0;
+        }
+        .comparison {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #2A2A2A;
+            border-radius: 6px;
+        }
+        .comparison-item {
+            text-align: center;
+        }
+        .comparison-label {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .test-button {
+            display: inline-block;
+            background: #C9A84C;
+            color: #0F0F0F;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0.5rem;
+        }
+        .test-button:hover {
+            background: #D8B04C;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Logo尺寸調整完成</h1>
+        
+        <div class="preview-section">
+            <div class="section-title">調整摘要</div>
+            <div class="success-box">
+                <p><strong>問題:</strong> Logo太大，比GOROS商標還要高</p>
+                <p><strong>解決方案:</strong> 調整CSS尺寸類，保持Logo與文字比例協調</p>
+                <p><strong>調整原則:</strong> Logo高度約為文字高度的80%</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Tailwind尺寸換算:</strong></p>
+                <ul>
+                    <li>PC端文字: <code>text-xl</code> = 1.25rem (20px)</li>
+                    <li>PC端Logo: <code>h-5</code> = 1.25rem (20px) = 文字高度的100%</li>
+                    <li>手機端文字: <code>text-lg</code> = 1.125rem (18px)</li>
+                    <li>手機端Logo: <code>h-4</code> = 1rem (16px) = 文字高度的89%</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="preview-section">
+            <div class="section-title">PC端預覽 (AppHeader)</div>
+            <div class="pc-preview">
+                <div class="preview-header">
+                    <img src="/goros-logo-gold.svg" class="w-3 h-5 opacity-95" alt="GOROS Logo" />
+                    <span class="text-gold font-bold text-xl tracking-widest font-mono">GOROS</span>
+                    <div class="size-info">尺寸: w-3 h-5</div>
+                </div>
+                <div class="comparison">
+                    <div class="comparison-item">
+                        <div class="comparison-label">調整前</div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 20px; height: 40px; background: #C9A84C; opacity: 0.3;"></div>
+                            <span style="color: #C9A84C; font-family: monospace;">GOROS</span>
+                        </div>
+                        <div class="comparison-label">Logo比文字高100%</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">調整後</div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 12px; height: 20px; background: #C9A84C;"></div>
+                            <span style="color: #C9A84C; font-family: monospace;">GOROS</span>
+                        </div>
+                        <div class="comparison-label">Logo與文字等高</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-section">
+            <div class="section-title">手機端預覽</div>
+            <div class="mobile-preview">
+                <div class="preview-header">
+                    <img src="/goros-logo-gold.svg" class="w-2 h-4 opacity-95" alt="GOROS Logo" />
+                    <span class="text-gold font-bold text-lg tracking-widest font-mono">GOROS</span>
+                    <div class="size-info">尺寸: w-2 h-4</div>
+                </div>
+                <p style="color: #999; font-size: 0.9rem; margin-top: 1rem;">
+                    手機端Logo高度為文字高度的89%，視覺上更加協調。
+                </p>
+            </div>
+        </div>
+        
+        <div class="preview-section">
+            <div class="section-title">修改的文件</div>
+            <div class="info-box">
+                <p><strong>已更新以下文件:</strong></p>
+                <ol>
+                    <li><code>src/components/common/AppHeader.vue</code> - PC端Logo尺寸</li>
+                    <li><code>src/views/mobile/MobileListView.vue</code> - 手機列表頁Logo尺寸</li>
+                    <li><code>src/views/mobile/MobileDetailView.vue</code> - 手機詳情頁Logo尺寸</li>
+                </ol>
+                <p><strong>所有文件都已應用熱重載 (HMR)</strong></p>
+            </div>
+        </div>
+        
+        <div class="preview-section">
+            <div class="section-title">測試與驗證</div>
+            <div class="button-group">
+                <a href="http://localhost:5173" class="test-button" target="_blank">訪問主頁面</a>
+                <a href="http://localhost:5173/logo-size-test.html" class="test-button" target="_blank">尺寸測試頁面</a>
+                <a href="http://localhost:5173/logo-final-test.html" class="test-button" target="_blank">最終測試頁面</a>
+            </div>
+            <div style="text-align: center; margin-top: 1.5rem; color: #999;">
+                <p>請訪問主頁面查看實際效果，如果還需要調整，可以使用尺寸測試頁面進行微調。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

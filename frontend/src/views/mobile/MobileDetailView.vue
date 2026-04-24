@@ -7,7 +7,10 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
       </router-link>
-      <span class="text-gold font-bold font-mono tracking-widest text-sm">GOROS</span>
+      <div class="flex items-center gap-1">
+        <img src="/goros-feather.png" class="h-5 w-auto" alt="GOROS Logo" />
+        <span class="text-gold font-bold font-mono tracking-widest text-sm">GOROS</span>
+      </div>
     </header>
 
     <LoadingSpinner v-if="loading" />

@@ -1,0 +1,27 @@
+<svg width="60" height="160" viewBox="0 0 60 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- !H��Logo - �rR~�D -->
+  <path d="M30 20 C22 36 8 56 10 96 C13 126 22 151 30 172 C38 151 47 126 50 96 C52 56 38 36 30 20Z" 
+        fill="url(#simple-silver)" stroke="#E8E8E8" stroke-width="1.2"/>
+  
+  <!-- -�� - R~�r -->
+  <line x1="30" y1="20" x2="30" y2="172" stroke="#4ECDC4" stroke-width="1.2"/>
+  
+  <!-- �t��0� -->
+  <line x1="30" y1="51" x2="12" y2="68" stroke="#4ECDC4" stroke-width="1" opacity="0.8"/>
+  <line x1="30" y1="76" x2="9" y2="96" stroke="#4ECDC4" stroke-width="1" opacity="0.8"/>
+  
+  <!-- �t��0� -->
+  <line x1="30" y1="51" x2="48" y2="68" stroke="#4ECDC4" stroke-width="1" opacity="0.8"/>
+  <line x1="30" y1="76" x2="51" y2="96" stroke="#4ECDC4" stroke-width="1" opacity="0.8"/>
+  
+  <!-- R~�޴ -->
+  <circle cx="22" cy="60" r="4" fill="#4ECDC4"/>
+  <circle cx="38" cy="100" r="4" fill="#4ECDC4"/>
+  
+  <defs>
+    <linearGradient id="simple-silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0F0F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D0D0D0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

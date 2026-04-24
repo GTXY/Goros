@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品數量調試頁面</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #C9A84C;
+            padding-bottom: 1rem;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .test-title {
+            color: #C9A84C;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .api-test {
+            background: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        .result {
+            font-family: monospace;
+            padding: 0.5rem;
+            background: #222;
+            color: #fff;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow-x: auto;
+        }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        .info { color: blue; font-weight: bold; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .comparison-item {
+            padding: 1rem;
+            border-radius: 6px;
+            background: #f9f9f9;
+        }
+        button {
+            background: #C9A84C;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        button:hover {
+            background: #B09030;
+        }
+        .explanation {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>商品數量不一致問題診斷</h1>
+        
+        <div class="explanation">
+            <h3>🔍 問題分析：</h3>
+            <p>根據檢查，發現API的 <code>in_stock</code> 參數默認值為 <code>true</code>。</p>
+            <p>這意味著：</p>
+            <ul>
+                <li><strong>有庫存商品</strong>: 2,528件</li>
+                <li><strong>所有商品</strong>: 6,204件</li>
+                <li><strong>默認顯示</strong>: 有庫存商品 (2,528件)</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">API測試 - 不同過濾條件</div>
+            
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h4>測試1: 默認 (in_stock=true)</h4>
+                    <button onclick="testAPI('default')">測試</button>
+                    <div id="result-default" class="result">等待測試...</div>
+                </div>
+                <div class="comparison-item">
+                    <h4>測試2: 所有商品 (in_stock=false)</h4>
+                    <button onclick="testAPI('all')">測試</button>
+                    <div id="result-all" class="result">等待測試...</div>
+                </div>
+            </div>
+            
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h4>測試3: 無過濾參數</h4>
+                    <button onclick="testAPI('no-param')">測試</button>
+                    <div id="result-no-param" class="result">等待測試...</div>
+                </div>
+                <div class="comparison-item">
+                    <h4>測試4: 後端直接API</h4>
+                    <button onclick="testBackendAPI()">測試</button>
+                    <div id="result-backend" class="result">等待測試...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">頁面狀態測試</div>
+            <div class="api-test">
+                <p><strong>前端頁面狀態：</strong></p>
+                <button onclick="testPages()">測試PC和手機端</button>
+                <div id="page-results" class="result">等待測試...</div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">解決方案</div>
+            <div class="explanation">
+                <p><strong>如果PC和手機端顯示數量不一致：</strong></p>
+                <ol>
+                    <li>檢查兩個頁面是否使用相同的過濾store</li>
+                    <li>確認兩個頁面的初始化邏輯一致</li>
+                    <li>清除瀏覽器緩存並刷新頁面</li>
+                    <li>檢查控制台是否有錯誤</li>
+                </ol>
+                
+                <p><strong>當前設置：</strong></p>
+                <ul>
+                    <li>API默認只顯示有庫存商品 (2,528件)</li>
+                    <li>如果要顯示所有商品，需要設置 <code>in_stock: false</code></li>
+                    <li>Logo問題已解決：使用 <code>/goros-logo-gold.svg</code> 路徑</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        async function testAPI(type) {
+            let url = '';
+            let resultDiv = null;
+            
+            switch(type) {
+                case 'default':
+                    url = '/api/products?page=1&limit=24&in_stock=true&sort=scraped_at_desc';
+                    resultDiv = document.getElementById('result-default');
+                    break;
+                case 'all':
+                    url = '/api/products?page=1&limit=24&in_stock=false&sort=scraped_at_desc';
+                    resultDiv = document.getElementById('result-all');
+                    break;
+                case 'no-param':
+                    url = '/api/products?page=1&limit=24&sort=scraped_at_desc';
+                    resultDiv = document.getElementById('result-no-param');
+                    break;
+            }
+            
+            resultDiv.innerHTML = '<span class="info">請求中...</span>';
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                resultDiv.innerHTML = `
+                    <span class="success">✓ 成功</span><br>
+                    總數: ${data.total.toLocaleString()}件<br>
+                    頁碼: ${data.page}/${data.pages}<br>
+                    商品數量: ${data.products.length}件<br>
+                    in_stock: ${type === 'all' ? 'false' : 'true'}
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">✗ 錯誤: ${error.message}</span>`;
+            }
+        }
+        
+        async function testBackendAPI() {
+            const resultDiv = document.getElementById('result-backend');
+            resultDiv.innerHTML = '<span class="info">請求中...</span>';
+            
+            try {
+                const response = await fetch('http://localhost:8000/api/products?page=1&limit=5&sort=scraped_at_desc');
+                const data = await response.json();
+                resultDiv.innerHTML = `
+                    <span class="success">✓ 後端API正常</span><br>
+                    總數: ${data.total.toLocaleString()}件<br>
+                    頁碼: ${data.page}/${data.pages}<br>
+                    URL: ${response.url}
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">✗ 後端錯誤: ${error.message}</span>`;
+            }
+        }
+        
+        async function testPages() {
+            const resultDiv = document.getElementById('page-results');
+            resultDiv.innerHTML = '<span class="info">測試中...</span>';
+            
+            // 模擬頁面訪問
+            try {
+                // 測試PC端頁面
+                const pcResponse = await fetch('/');
+                const pcText = await pcResponse.text();
+                
+                // 測試手機端頁面
+                const mobileResponse = await fetch('/');
+                const mobileText = await mobileResponse.text();
+                
+                resultDiv.innerHTML = `
+                    <span class="success">✓ 頁面可訪問</span><br>
+                    PC端: ${pcResponse.status === 200 ? '正常' : '錯誤'}<br>
+                    手機端: ${mobileResponse.status === 200 ? '正常' : '錯誤'}<br>
+                    <br>
+                    <strong>建議：</strong><br>
+                    1. 訪問 <a href="http://localhost:5173" target="_blank">PC端主頁</a><br>
+                    2. 訪問 <a href="http://localhost:5173" target="_blank">手機端主頁</a><br>
+                    3. 比較兩個頁面顯示的商品數量
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">✗ 頁面測試錯誤: ${error.message}</span>`;
+            }
+        }
+        
+        // 初始測試
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('調試頁面已加載');
+        });
+    </script>
+</body>
+</html>

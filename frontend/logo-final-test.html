@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo最終測試</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem;
+            background: #0F0F0F;
+            color: #F5F5F5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #C9A84C;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .test-section {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #2A2A2A;
+            margin-bottom: 2rem;
+        }
+        .test-title {
+            color: #C9A84C;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #C9A84C;
+            padding-bottom: 0.5rem;
+        }
+        .logo-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: #222;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .logo-size {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .logo-item {
+            text-align: center;
+            padding: 1rem;
+            background: #2A2A2A;
+            border-radius: 6px;
+            border: 1px solid #3A3A3A;
+        }
+        .logo-label {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .status {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        .info {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196F3;
+            border: 1px solid rgba(33, 150, 243, 0.3);
+        }
+        .test-button {
+            background: #C9A84C;
+            color: #0F0F0F;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            margin: 1rem 0;
+            display: inline-block;
+        }
+        .test-button:hover {
+            background: #D8B04C;
+        }
+        .result {
+            font-family: monospace;
+            background: #222;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Logo編碼錯誤修復完成</h1>
+        
+        <div class="test-section">
+            <div class="test-title">修復摘要</div>
+            <div class="status success">
+                ✓ 已修復SVG文件的編碼錯誤<br>
+                ✓ 移除亂碼中文註釋，改用英文註釋<br>
+                ✓ 文件編碼現在是安全的ASCII編碼<br>
+                ✓ Logo路徑：<code>/goros-logo-gold.svg</code>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">Logo預覽</div>
+            <div class="logo-display">
+                <div id="logo-container"></div>
+                <div class="logo-size">
+                    <div class="logo-item">
+                        <div class="logo-label">PC端尺寸 (AppHeader)</div>
+                        <img src="/goros-logo-gold.svg" class="w-5 h-12 opacity-95" alt="GOROS Logo" />
+                        <div class="logo-label">w-5 h-12</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-label">手機端尺寸</div>
+                        <img src="/goros-logo-gold.svg" class="w-3 h-8 opacity-95" alt="GOROS Logo" />
+                        <div class="logo-label">w-3 h-8</div>
+                    </div>
+                </div>
+                <div class="status info">
+                    如果上方顯示金色羽毛圖案，表示Logo已修復成功
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">直接訪問測試</div>
+            <button class="test-button" onclick="testDirectAccess()">測試直接訪問Logo文件</button>
+            <div id="direct-test-result" class="result">點擊按鈕測試...</div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">實際頁面測試</div>
+            <div class="status info">
+                <strong>請執行以下步驟：</strong>
+                <ol>
+                    <li>訪問主頁面：<a href="http://localhost:5173" target="_blank">http://localhost:5173</a></li>
+                    <li>按 <strong>Ctrl+Shift+R</strong> (Windows) 或 <strong>Cmd+Shift+R</strong> (Mac) 強制刷新</li>
+                    <li>檢查頁面頂部的Logo是否顯示金色羽毛</li>
+                    <li>檢查「GOROS」文字是否為金色</li>
+                    <li>檢查商品來源標籤是否為金色</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">如果仍不顯示，請檢查：</div>
+            <div class="status info">
+                1. 瀏覽器開發者工具 (F12) → 控制台標籤，查看錯誤<br>
+                2. 網絡標籤 → 過濾「Img」，查看goros-logo-gold.svg的請求狀態<br>
+                3. 清除瀏覽器緩存後重試<br>
+                4. 嘗試不同瀏覽器
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 動態加載Logo
+        function loadLogo() {
+            const container = document.getElementById('logo-container');
+            container.innerHTML = '<div style="color:#999">加載中...</div>';
+            
+            fetch('/goros-logo-gold.svg')
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    return response.text();
+                })
+                .then(svgText => {
+                    container.innerHTML = svgText;
+                    const svg = container.querySelector('svg');
+                    if (svg) {
+                        svg.style.width = '120px';
+                        svg.style.height = '200px';
+                    }
+                })
+                .catch(error => {
+                    container.innerHTML = `<div style="color:red">加載失敗: ${error.message}</div>`;
+                });
+        }
+        
+        // 測試直接訪問
+        async function testDirectAccess() {
+            const resultDiv = document.getElementById('direct-test-result');
+            resultDiv.innerHTML = '<span style="color:#2196F3">測試中...</span>';
+            
+            try {
+                const response = await fetch('/goros-logo-gold.svg');
+                const status = response.status;
+                const contentType = response.headers.get('content-type');
+                const content = await response.text();
+                
+                if (status === 200 && contentType && contentType.includes('svg')) {
+                    resultDiv.innerHTML = `
+                        <span style="color:#4CAF50">✓ 成功！</span><br>
+                        狀態碼: ${status}<br>
+                        內容類型: ${contentType}<br>
+                        文件大小: ${content.length} 字符<br>
+                        前100字符: ${content.substring(0, 100)}...
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <span style="color:red">✗ 有問題</span><br>
+                        狀態碼: ${status}<br>
+                        內容類型: ${contentType || '未知'}<br>
+                        響應: ${content.substring(0, 200)}
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span style="color:red">✗ 錯誤: ${error.message}</span>`;
+            }
+        }
+        
+        // 頁面加載時初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLogo();
+            console.log('Logo測試頁面已加載');
+        });
+    </script>
+</body>
+</html>

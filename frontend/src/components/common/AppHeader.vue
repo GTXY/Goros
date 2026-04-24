@@ -2,19 +2,8 @@
   <header class="sticky top-0 z-50 bg-dark/95 backdrop-blur border-b border-dark-border">
     <div class="max-w-screen-2xl mx-auto px-4 h-14 flex items-center gap-4">
       <!-- Logo -->
-      <router-link to="/" class="flex items-center gap-2 shrink-0">
-        <svg class="w-4 h-7 opacity-90" viewBox="0 0 60 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 4 C22 20 8 40 10 80 C13 110 22 135 30 156 C38 135 47 110 50 80 C52 40 38 20 30 4Z" fill="#C9A84C"/>
-          <line x1="30" y1="4" x2="30" y2="156" stroke="#0F0F0F" stroke-width="2"/>
-          <line x1="30" y1="35" x2="12" y2="52" stroke="#0F0F0F" stroke-width="1.2"/>
-          <line x1="30" y1="60" x2="9" y2="80" stroke="#0F0F0F" stroke-width="1.2"/>
-          <line x1="30" y1="85" x2="11" y2="107" stroke="#0F0F0F" stroke-width="1.2"/>
-          <line x1="30" y1="110" x2="16" y2="130" stroke="#0F0F0F" stroke-width="1.2"/>
-          <line x1="30" y1="35" x2="48" y2="52" stroke="#0F0F0F" stroke-width="1.2"/>
-          <line x1="30" y1="60" x2="51" y2="80" stroke="#0F0F0F" stroke-width="1.2"/>
-          <line x1="30" y1="85" x2="49" y2="107" stroke="#0F0F0F" stroke-width="1.2"/>
-          <line x1="30" y1="110" x2="44" y2="130" stroke="#0F0F0F" stroke-width="1.2"/>
-        </svg>
+      <router-link to="/" class="flex items-center gap-1.5 shrink-0">
+        <img src="/goros-feather.png" class="h-7 w-auto" alt="GOROS Logo" />
         <span class="text-gold font-bold text-xl tracking-widest font-mono">GOROS</span>
       </router-link>
 
@@ -32,8 +21,9 @@
         {{ lastUpdateText }}
       </div>
 
-      <!-- Sync button -->
+      <!-- Sync button (hidden in production) -->
       <button
+        v-if="allowManualSync"
         @click="handleSync"
         :disabled="syncing"
         class="flex items-center gap-1.5 border border-gold/50 text-gold text-xs px-3 py-1.5 rounded hover:bg-gold/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
@@ -87,6 +77,9 @@ const scrapeStatus = ref<ScrapeStatus | null>(null)
 let pollTimer: ReturnType<typeof setInterval> | null = null
 
 const stats = computed(() => productStore.stats)
+
+// Environment variables
+const allowManualSync = __ALLOW_MANUAL_SYNC__
 
 const lastUpdateText = computed(() => {
   const lastScrape = stats.value?.last_scrape

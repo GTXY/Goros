@@ -1,0 +1,55 @@
+<svg width="60" height="160" viewBox="0 0 60 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gold feather main shape -->
+  <path d="M30 20 C22 36 8 56 10 96 C13 126 22 151 30 172 C38 151 47 126 50 96 C52 56 38 36 30 20Z" 
+        fill="url(#gold-feather)" stroke="#C9A84C" stroke-width="1.5" opacity="0.9"/>
+  
+  <!-- Center line -->
+  <line x1="30" y1="20" x2="30" y2="172" stroke="#C9A84C" stroke-width="1.5" opacity="0.8"/>
+  
+  <!-- Left feather details -->
+  <line x1="30" y1="40" x2="18" y2="50" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="60" x2="12" y2="75" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="80" x2="9" y2="100" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="100" x2="14" y2="120" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="120" x2="20" y2="140" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="140" x2="24" y2="156" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  
+  <!-- Right feather details -->
+  <line x1="30" y1="40" x2="42" y2="50" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="60" x2="48" y2="75" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="80" x2="51" y2="100" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="100" x2="46" y2="120" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="120" x2="40" y2="140" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  <line x1="30" y1="140" x2="36" y2="156" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+  
+  <!-- Decoration dots -->
+  <circle cx="24" cy="55" r="3" fill="#C9A84C" opacity="0.9"/>
+  <circle cx="36" cy="95" r="3" fill="#C9A84C" opacity="0.9"/>
+  <circle cx="28" cy="135" r="2.5" fill="#C9A84C" opacity="0.9"/>
+  <circle cx="32" cy="45" r="2.5" fill="#C9A84C" opacity="0.9"/>
+  
+  <!-- Small decorations -->
+  <ellipse cx="26" cy="70" rx="2" ry="1" fill="#C9A84C" opacity="0.6"/>
+  <ellipse cx="34" cy="110" rx="2" ry="1" fill="#C9A84C" opacity="0.6"/>
+  
+  <!-- Top tip -->
+  <path d="M28 22 L30 20 L32 22" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+  
+  <defs>
+    <!-- Gold gradient -->
+    <linearGradient id="gold-feather" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D8B04C;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#C9A84C;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#B09030;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <!-- Gold glow effect -->
+    <radialGradient id="gold-glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#F0D080;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#C9A84C;stop-opacity:0.2" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Gold glow effect -->
+  <circle cx="30" cy="80" r="40" fill="url(#gold-glow)" opacity="0.3"/>
+</svg>

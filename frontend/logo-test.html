@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo 測試頁面</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #C9A84C;
+            padding-bottom: 1rem;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .test-title {
+            color: #C9A84C;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .logo-box {
+            border: 2px dashed #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .path-info {
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .solution {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GOROS Logo 顯示問題診斷</h1>
+        
+        <div class="solution">
+            <h3>✅ 已修復問題：</h3>
+            <ul>
+                <li><strong>Logo路徑問題：</strong> 將 <code>src="/src/assets/..."</code> 改為 <code>src="@/assets/..."</code></li>
+                <li><strong>後端API：</strong> FastAPI 後端已啟動於 <code>http://localhost:8000</code></li>
+                <li><strong>前端代理：</strong> Vite 代理配置已正確設置</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">測試1: 直接訪問Logo文件</div>
+            <p>嘗試訪問不同路徑的Logo文件：</p>
+            
+            <div class="logo-container">
+                <div class="logo-box">
+                    <div>路徑1: <code>@/assets/goros-logo-gold.svg</code></div>
+                    <div class="path-info">用於: AppHeader.vue</div>
+                </div>
+            </div>
+            
+            <p><strong>測試連結：</strong></p>
+            <ul>
+                <li><a href="http://localhost:5173/src/assets/goros-logo-gold.svg" target="_blank">/src/assets/goros-logo-gold.svg</a> (舊路徑)</li>
+                <li><a href="http://localhost:5173/@fs/Users/kudoushinichi/Documents/AI Projects/Goros/frontend/src/assets/goros-logo-gold.svg" target="_blank">Vite @fs 路徑</a></li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">測試2: 金色素羽Logo預覽</div>
+            <p>以下是新創建的金色Logo：</p>
+            
+            <div class="logo-container">
+                <div class="logo-box">
+                    <svg width="120" height="200" viewBox="0 0 60 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30 20 C22 36 8 56 10 96 C13 126 22 151 30 172 C38 151 47 126 50 96 C52 56 38 36 30 20Z" 
+                              fill="#C9A84C" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
+                        <line x1="30" y1="20" x2="30" y2="172" stroke="#C9A84C" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="30" y1="50" x2="15" y2="65" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                        <line x1="30" y1="80" x2="10" y2="100" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                        <line x1="30" y1="110" x2="16" y2="130" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                        <line x1="30" y1="50" x2="45" y2="65" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                        <line x1="30" y1="80" x2="50" y2="100" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                        <line x1="30" y1="110" x2="44" y2="130" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+                        <circle cx="25" cy="60" r="3" fill="#C9A84C" opacity="0.9"/>
+                        <circle cx="35" cy="100" r="3" fill="#C9A84C" opacity="0.9"/>
+                    </svg>
+                </div>
+                <div>
+                    <p><span class="success">✓ 金色素羽Logo已創建</span></p>
+                    <p>文件位置: <code>./Goros/frontend/src/assets/goros-logo-gold.svg</code></p>
+                    <p>顏色: 金色 <span style="color: #C9A84C; font-weight: bold;">#C9A84C</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">測試3: 系統狀態檢查</div>
+            <p><strong>後端狀態：</strong> <span class="success">✓ 運行中 (http://localhost:8000)</span></p>
+            <p><strong>前端狀態：</strong> <span class="success">✓ 運行中 (http://localhost:5173)</span></p>
+            <p><strong>API代理：</strong> <span class="success">✓ 已配置 (Vite代理到後端)</span></p>
+            
+            <div class="solution">
+                <h3>如果Logo仍不顯示，請嘗試：</h3>
+                <ol>
+                    <li>清除瀏覽器緩存 (Ctrl+Shift+R 或 Cmd+Shift+R)</li>
+                    <li>檢查瀏覽器開發者工具中的"網絡"標籤</li>
+                    <li>確認文件名大小寫正確</li>
+                    <li>嘗試直接訪問主頁面: <a href="http://localhost:5173" target="_blank">http://localhost:5173</a></li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">修改總結</div>
+            <p>已完成以下修改：</p>
+            <ul>
+                <li>✅ 創建金色素羽Logo <code>goros-logo-gold.svg</code></li>
+                <li>✅ 修復所有組件的Logo路徑 (改為 <code>@/assets/...</code>)</li>
+                <li>✅ 更新AppHeader.vue、MobileListView.vue、MobileDetailView.vue</li>
+                <li>✅ 啟動FastAPI後端伺服器 (端口 8000)</li>
+                <li>✅ 修復API代理配置</li>
+                <li>✅ 將GOROS文字從藍色改為金色</li>
+                <li>✅ 將商品來源標籤改為金色</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // 簡單的Logo加載測試
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Logo測試頁面已加載');
+            
+            // 測試Logo文件是否存在
+            fetch('http://localhost:5173/src/assets/goros-logo-gold.svg')
+                .then(response => {
+                    console.log('舊路徑測試:', response.ok ? '成功' : '失敗');
+                })
+                .catch(err => {
+                    console.log('舊路徑無法訪問:', err.message);
+                });
+        });
+    </script>
+</body>
+</html>

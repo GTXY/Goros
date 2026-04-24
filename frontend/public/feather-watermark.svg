@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 800" width="300" height="800" fill="none">
-  <!-- ;?r -->
-  <path d="M150 20 C145 200 142 400 148 780" stroke="#C9A84C" stroke-width="3" stroke-linecap="round"/>
-  <!-- ??;n? -->
+  <!-- 中心線 - 青松石色 -->
+  <path d="M150 20 C145 200 142 400 148 780" stroke="#4ECDC4" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  
+  <!-- 羽毛主形狀 - 銀色 -->
   <path d="M150 20
     C120 60, 60 120, 50 220
     C40 320, 70 420, 100 520
@@ -9,21 +10,37 @@
     C166 640, 182 570, 200 520
     C230 420, 260 320, 250 220
     C240 120, 180 60, 150 20Z"
-    fill="#C9A84C" opacity="0.15"/>
-  <!-- ???	 -->
-  <line x1="148" y1="120" x2="80" y2="160" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="147" y1="180" x2="68" y2="230" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="146" y1="240" x2="60" y2="300" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="146" y1="300" x2="62" y2="365" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="146" y1="360" x2="70" y2="425" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="147" y1="420" x2="82" y2="480" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="147" y1="480" x2="98" y2="535" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <!-- ???	 -->
-  <line x1="152" y1="120" x2="220" y2="160" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="153" y1="180" x2="232" y2="230" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="154" y1="240" x2="240" y2="300" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="154" y1="300" x2="238" y2="365" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="154" y1="360" x2="230" y2="425" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="153" y1="420" x2="218" y2="480" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-  <line x1="153" y1="480" x2="202" y2="535" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
+    fill="url(#silver-gradient)" opacity="0.05"/>
+  
+  <!-- 左側羽毛細節 - 青松石色 -->
+  <line x1="148" y1="120" x2="80" y2="160" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="147" y1="180" x2="68" y2="230" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="146" y1="240" x2="60" y2="300" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="146" y1="300" x2="62" y2="365" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="146" y1="360" x2="70" y2="425" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="147" y1="420" x2="82" y2="480" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="147" y1="480" x2="98" y2="535" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  
+  <!-- 右側羽毛細節 - 青松石色 -->
+  <line x1="152" y1="120" x2="220" y2="160" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="153" y1="180" x2="232" y2="230" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="154" y1="240" x2="240" y2="300" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="154" y1="300" x2="238" y2="365" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="154" y1="360" x2="230" y2="425" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="153" y1="420" x2="218" y2="480" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  <line x1="153" y1="480" x2="202" y2="535" stroke="#4ECDC4" stroke-width="1.2" opacity="0.2"/>
+  
+  <!-- 青松石點綴 -->
+  <circle cx="90" cy="200" r="8" fill="#4ECDC4" opacity="0.1"/>
+  <circle cx="210" cy="400" r="8" fill="#4ECDC4" opacity="0.1"/>
+  <circle cx="120" cy="600" r="6" fill="#4ECDC4" opacity="0.1"/>
+  <circle cx="180" cy="300" r="6" fill="#4ECDC4" opacity="0.1"/>
+  
+  <defs>
+    <!-- 銀色漸變 -->
+    <linearGradient id="silver-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0F0F0;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#C0C0C0;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
 </svg>
