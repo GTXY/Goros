@@ -7,7 +7,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 from app.core.database import init_db
 from app.api.routes import products, scrape
@@ -78,6 +78,10 @@ app.add_middleware(
 app.include_router(products.router, prefix="/api")
 app.include_router(scrape.router, prefix="/api")
 
-# 前端打包后静态托管（生产环境）
-if FRONTEND_DIST.exists():
-    app.mount("/", StaticFiles(directory=str(FRONTEND_DIST), html=True), name="frontend")
+# 前端静态文件托管（catch-all，支持 SPA 子路由刷新）
+@app.get("/{full_path:path}")
+async def serve_spa(full_path: str):
+    file_path = FRONTEND_DIST / full_path
+    if file_path.is_file():
+        return FileResponse(str(file_path))
+    return FileResponse(str(FRONTEND_DIST / "index.html"))
