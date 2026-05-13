@@ -404,7 +404,7 @@ npm run dev
 | Phase 9 | RINKAN 增量同步（集合差运算，降低请求量） | ✅ 完成 |
 | Phase 10 | APScheduler 定时任务（凌晨 03:00 自动同步） | ✅ 完成 |
 | Phase 11 | 样式精调（间距优化、语言按钮顺序、ScrapePanel 紧凑化） | ✅ 完成 |
-|| Phase 12 | 品牌 Logo 升级 + TypeScript 全局变量声明修复 | ✅ 完成 |
+| Phase 12 | 品牌 Logo 升级 + TypeScript 全局变量声明修复 | ✅ 完成 |
 
 ---
 
